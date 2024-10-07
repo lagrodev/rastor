@@ -34,7 +34,7 @@ public class RasterizationController {
             }
         });
         Rasterization.setCanvas(canvas);
-        Rasterization.drawOval(canvas.getGraphicsContext2D(), 0, 0, 500, 200, Color.BLACK);
+        Rasterization.drawOval(canvas.getGraphicsContext2D(), 0, 0, 500, 200, Color.BLUE, Color.RED);
     }
 
     private void handlePrimaryClick(GraphicsContext graphicsContext, MouseEvent event) {
