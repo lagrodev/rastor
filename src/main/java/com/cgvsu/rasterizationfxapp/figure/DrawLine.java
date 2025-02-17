@@ -26,10 +26,10 @@ public class DrawLine {
 
 
     private void drawWuLine(GraphicsContext graphicsContext, Point point1, Point point2) {
-        int x0 = point1.getX();
-        int y0 = point1.getY();
-        int x1 = point2.getX();
-        int y1 = point2.getY();
+        int x0 = point1.x();
+        int y0 = point1.y();
+        int x1 = point2.x();
+        int y1 = point2.y();
 
         WritableImage writableImage = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
         PixelWriter pixelWriter = writableImage.getPixelWriter();
@@ -125,10 +125,10 @@ public class DrawLine {
     }
 
     private void drawBresenhamLine(GraphicsContext graphicsContext, Point point1, Point point2) {
-        int x0 = point1.getX();
-        int y0 = point1.getY();
-        int x1 = point2.getX();
-        int y1 = point2.getY();
+        int x0 = point1.x();
+        int y0 = point1.y();
+        int x1 = point2.x();
+        int y1 = point2.y();
 
         int dx = Math.abs(x1 - x0);
         int dy = Math.abs(y1 - y0);
@@ -166,8 +166,8 @@ public class DrawLine {
     // фу нахуй, говноо сссаное DDA
     private void drawDDALine(GraphicsContext graphicsContext, Point point1, Point point2) {
 
-        double dx = point2.getX() - point1.getX();
-        double dy = point2.getY() - point1.getY();
+        double dx = point2.x() - point1.x();
+        double dy = point2.y() - point1.y();
         final double step;
         if (Math.abs(dx) > Math.abs(dy)) {
             step = Math.abs(dx);
@@ -176,8 +176,8 @@ public class DrawLine {
         }
         dy /= step;
         dx /= step;
-        double x = point1.getX();
-        double y = point1.getY();
+        double x = point1.x();
+        double y = point1.y();
         WritableImage writableImage = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
         PixelWriter pixelWriter = writableImage.getPixelWriter();
         for (int i = 0; i < step; i++) {

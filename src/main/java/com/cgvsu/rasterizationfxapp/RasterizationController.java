@@ -28,13 +28,13 @@ public class RasterizationController {
     private void initialize() {
         anchorPane.prefWidthProperty().addListener((ov, oldValue, newValue) -> canvas.setWidth(newValue.doubleValue()));
         anchorPane.prefHeightProperty().addListener((ov, oldValue, newValue) -> canvas.setHeight(newValue.doubleValue()));
-        canvas.setOnMouseClicked(event -> {
+        /*canvas.setOnMouseClicked(event -> {
             switch (event.getButton()) {
-                case PRIMARY -> handlePrimaryClick(canvas.getGraphicsContext2D(), event);
+                // case PRIMARY -> handlePrimaryClick(canvas.getGraphicsContext2D(), event);
             }
-        });
+        });*/
         Rasterization.setCanvas(canvas);
-        Rasterization.drawOval(canvas.getGraphicsContext2D(), 0, 0, 500, 200, Color.BLACK);
+        Rasterization.drawOval(canvas.getGraphicsContext2D(), 0, 0, 500, 200, Color.RED, Color.BLUE);
     }
 
     private void handlePrimaryClick(GraphicsContext graphicsContext, MouseEvent event) {
@@ -47,6 +47,4 @@ public class RasterizationController {
         }
         points.add(clickPoint);
     }
-
-
 }
